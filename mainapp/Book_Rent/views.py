@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 def homefun(request):
-    return HttpResponse('this is home page')
+    return render(request,'Base.html')
 
 def sellfun(request):
     return HttpResponse('this is sell page')
