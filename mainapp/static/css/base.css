@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:#19456b;
+    color:black;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust height as needed */
+}
+
+.search-bar input {
+    padding: 8px;
+    width: 300px;
+    border: black solid;
+    border-radius: 10px ;
+}
+
+.search-bar button {
+    padding: 8px 15px;
+    background-color: #19456b;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.search-bar button:hover{
+    border-radius: 10px;
+    background-color: #d8d3d3;
+}
+
+.user-menu {
+    display: flex;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    margin-right: 10px;
+}
+
+.dropbtn {
+    background-color:white;
+    color: black;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+.dropbtn:hover {
+    border-radius: 10px;
+    background-color: #d8d3d3;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    border-radius: 10px;
+    background-color: #d8d3d3;
+}
+
+.sell-link {
+    color: black;
+    text-decoration:none;
+    padding: 8px 12px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.sell-link:hover {
+    background-color: #d8d3d3;
+    border-radius: 10px;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
