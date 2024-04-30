@@ -6,19 +6,29 @@ body {
 }
 
 header {
-    background-color:#19456b;
+    background-color:#65829c;
     color:black;
     padding: 10px 20px;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
-
+.navbar-div{
+   display: flex;
+   padding-left: 300px;
+   align-items: center; 
+}
+.navbar-div div{
+    padding-left: 70px;
+}
 .logo img {
     height: 40px; /* Adjust height as needed */
+}
+#logo-tag{
+    padding-left: 0px;
 }
 
 .search-bar input {
