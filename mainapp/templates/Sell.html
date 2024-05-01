@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-time Price Calculation Display with Form</title>
+</head>
+<body>
+    <h2>Enter Book Details:</h2>
+    <form id="bookForm" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="" id="">
+    </form>
+
+    <h2>Rent Price Calculations:</h2>
+    <div id="displayArea"></div>
+    
+
+    <script>
+        document.getElementById('id_price').addEventListener('input', function() {
+            displayData();
+        });
+
+        function displayData() {
+            var priceInput = parseFloat(document.getElementById('id_price').value);
+
+            if (isNaN(priceInput)) {
+                priceInput = 0;  // Set price to 0 if input is not a valid number
+            }
+
+            var displayArea = document.getElementById('displayArea');
+            displayArea.innerHTML = '';  // Clear previous content
+
+            // Calculate and display 5%, 10%, and 15% of the entered price
+            var tenPercent = priceInput * 0.1;
+            var fifteenPercent = priceInput * 0.15;
+            var twentyPercent = priceInput * 0.2;
+
+            // Create and append paragraph elements for each percentage calculation
+            var tenPercentElement = document.createElement('p');
+            tenPercentElement.textContent = "5% of Price: $" + tenPercent.toFixed(2);
+            displayArea.appendChild(tenPercentElement);
+
+            var fifteenPercentElement = document.createElement('p');
+            fifteenPercentElement.textContent = "10% of Price: $" + fifteenPercent.toFixed(2);
+            displayArea.appendChild(fifteenPercentElement);
+
+            var twentyPercentElement = document.createElement('p');
+            twentyPercentElement.textContent = "15% of Price: $" + twentyPercent.toFixed(2);
+            displayArea.appendChild(twentyPercentElement);
+        }
+    </script>
+</body>
+</html>

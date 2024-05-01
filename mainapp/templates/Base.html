@@ -12,17 +12,17 @@
         <nav>
             <div class="logo">
                 <img src="{% static 'images/world-book-day.png' %}" alt="Book Rental System">
-                
+                <div id="logo-tag"><b>Book World</b></div>
             </div>
-            <div id="logo-tag"><b>Book World</b></div>
-            <div class="navbar-div">
+            
+            <!-- <div class="navbar-div"> -->
             <div class="search-bar">
                 <input type="text" placeholder="Search books...">
                 <button type="submit">Search</button>
             </div>
             <div class="user-menu">
                 <div class="dropdown">
-                    <button class="dropbtn">Menu</button>
+                    <button class="dropbtn"><b>Menu</b></button>
                     <div class="dropdown-content">
                         <a href="#">Login</a>
                         <a href="#">Logout</a>
@@ -32,20 +32,35 @@
                     
                     </div>
                 </div>
-                <a href="#" class="sell-link">Sell</a>
-                <a href="#" class="sell-link">cart</a>
+                
+                <div class="logo">
+                    <a href="#">
+                    <img src="{% static 'images/sale.png' %}" alt="Book Rental System">
+                    </a>
+                </div>
+                <div class="logo">
+                    <a href="#">
+                    <img src="{% static 'images/shopping-cart.png' %}" alt="Book Rental System">
+                    </a>
+                </div>
                 <div class="dropdown">
-                    <button class="dropbtn">&#8942;</button>
+                    <button class="dropbtn">
+                        <div class="logo">
+                        <a href="#">
+                        <img src="{% static 'images/hamburger.png' %}" alt="Book Rental System">
+                        </a>
+                    </div></button>
                     <div class="dropdown-content">
                         <a href="#">Services</a>
                         <a href="#">Contact</a>
                         <a href="#">FAQs</a>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
         </nav>
     </header>
+<<<<<<< HEAD
     <div class="product-heading">
         <div class="product-container">
             
@@ -75,5 +90,33 @@
         </div>
     </div>
 
+=======
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>123 Bookworm Lane, Cityville, State, ZIP</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@yourbookrentalsystem.com</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="legal-info">
+            <div class="container">
+                <p>Terms of Service | Privacy Policy</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+>>>>>>> e69b768ee9bdb6d6e71ab17206e97bd4e42039c5
 </body>
 </html>
