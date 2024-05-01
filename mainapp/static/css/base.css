@@ -113,57 +113,6 @@ nav {
     display: block;
 }
 
-<<<<<<< HEAD
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .product-card {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .product-card img {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .product-card h3 {
-    margin-top: 10px;
-    font-size: 1.2rem;
-  }
-  
-  .product-card p {
-    margin-top: 5px;
-  }
-  
-  .product-card span {
-    display: block;
-    margin-top: 5px;
-    font-weight: bold;
-  }
-  
-  .product-card button {
-    margin-top: 10px;
-    padding: 8px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .product-card button:hover {
-    background-color: #0056b3;
-  }
-  
-=======
 .site-footer {
     background-color: #f8f9fa;
     padding: 30px 0;
