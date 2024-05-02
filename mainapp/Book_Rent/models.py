@@ -14,7 +14,7 @@ class Sell_model(models.Model):
     image=models.ImageField(upload_to='images/')
     date=models.DateField(auto_now_add=True)
     uploaded_by=models.ForeignKey(User,on_delete=models.CASCADE, editable=False)
-
+    categories=models.ForeignKey(Category,on_delete=models.CASCADE,default=7)
     def __str__(self):
         return self.title
     

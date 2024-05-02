@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Sell_model
+from .models import Sell_model,Category
 
-# admin.site.register(Sell_model)
+
+admin.site.register(Category)
 
 class sell_admin(admin.ModelAdmin):
     list_display='__all__'
