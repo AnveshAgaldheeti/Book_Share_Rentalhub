@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import Sell_form
 from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
 
 def shopfun(request):
     return render(request,'Base.html')
@@ -26,3 +27,17 @@ def servicesfun(request):
 
 def contactfun(request):
     return HttpResponse('this is contact page')
+
+def loginfun(request):
+    if request.method=='POST':
+        uname=request.POST['username']
+        pwd=request.POST['password']
+        obj=authenticate(request,username=uname,password=pwd)
+        if obj:
+            login(request,obj)
+            # return render(request,'formapp/displayimg.html',{'user':request.user})
+            return HttpResponse('logedin successfully')
+        else:
+            messages.error(request,'invalid credentials')
+            redirect('loginurl')
+    return render(request,'login.html')
