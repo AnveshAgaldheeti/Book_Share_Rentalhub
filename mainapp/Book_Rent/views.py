@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .forms import Sell_form
+from .forms import Sell_form,signupform
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 
@@ -36,8 +36,27 @@ def loginfun(request):
         if obj:
             login(request,obj)
             # return render(request,'formapp/displayimg.html',{'user':request.user})
-            return HttpResponse('logedin successfully')
+            return redirect('shopurl')
         else:
             messages.error(request,'invalid credentials')
             redirect('loginurl')
     return render(request,'login.html')
+
+def signupfun(request):
+    empty=signupform()
+    if request.method=='POST':
+        obj=signupform(request.POST)
+        if obj.is_valid()==True:
+            user=obj.save()
+            login(request,user)
+            # messages.success(request,'loged in successfully')
+            return redirect('loginurl')
+        else:
+            messages.error(request,'error in login ')
+            return render(request,'signup.html',{'form':obj})
+    context={'form':empty}
+    return render(request,'signup.html',context)
+
+def logoutfun(request):
+    logout(request)
+    return redirect('loginurl')
