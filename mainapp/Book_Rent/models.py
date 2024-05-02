@@ -8,12 +8,14 @@ class Sell_model(models.Model):
     price=models.IntegerField()
     image=models.ImageField(upload_to='images/')
     date=models.DateField(auto_now_add=True)
-    auth_id=models.ForeignKey(User,on_delete=models.CASCADE,null=True,editable=False)
+    uploaded_by=models.ForeignKey(User,on_delete=models.CASCADE, editable=False)
 
     def __str__(self):
         return self.title
-
     
+
+
+
     
 
 

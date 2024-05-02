@@ -3,16 +3,20 @@ from django.http import HttpResponse
 from .forms import Sell_form,signupform
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 
 def shopfun(request):
     return render(request,'Base.html')
 
+@login_required(login_url='loginurl')
 def sellfun(request):
     form=Sell_form()
     if request.method=="POST":
         data=Sell_form(request.POST,request.FILES)
         if data.is_valid():
-            data.save()
+            new_book = data.save(commit=False)
+            new_book.uploaded_by = request.user
+            new_book.save()
             return HttpResponse("data inserted ")
         else:
             return HttpResponse("data not inserted")
