@@ -56,7 +56,7 @@ def signupfun(request):
             # messages.success(request,'loged in successfully')
             return redirect('loginurl')
         else:
-            messages.error(request,'error in login ')
+            messages.error(request,' please enter valid details ')
             return render(request,'signup.html',{'form':obj})
     context={'form':empty}
     return render(request,'signup.html',context)
