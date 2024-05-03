@@ -4,6 +4,7 @@ from .forms import Sell_form,signupform
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
+from .models import Sell_model
 
 def shopfun(request):
     return render(request,'Base.html')
@@ -64,3 +65,7 @@ def signupfun(request):
 def logoutfun(request):
     logout(request)
     return redirect('loginurl')
+
+def booklistfun(request):
+    books=Sell_model.objects.all()
+    return render(request,'booklist.html',{'books':books})
