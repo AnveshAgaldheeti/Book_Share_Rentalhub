@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 class Sell_form(forms.ModelForm):
     class Meta:
         model=Sell_model
-        fields=['title','author','description','price','image']
+        fields=['title','author','description','categories','price','image']
 
 
 
