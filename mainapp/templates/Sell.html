@@ -1,129 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Real-time Price Calculation Display with Form</title>
-    <style>
-        * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
+{% extends 'base.html' %}
+{% block leftsection %}
+<h2>Rental Duration Options and Payouts</h2>
+<table>
+    <tr>
+        <th>Rental Duration</th>
+        <th>Description</th>
+        <th>Calculation</th>
+    </tr>
+    <tr>
+        <td>15 Days</td>
+        <td>Rent your book out for 15 days and receive 10% of the book's price as the rental payout.</td>
+        <td>Payout = 10% of Book Price</td>
+    </tr>
+    <tr>
+        <td>30 Days</td>
+        <td>Rent your book out for 30 days and receive 15% of the book's price as the rental payout.</td>
+        <td>Payout = 15% of Book Price</td>
+    </tr>
+    <tr>
+        <td>45 Days</td>
+        <td>Rent your book out for 45 days and receive 20% of the book's price as the rental payout.</td>
+        <td>Payout = 20% of Book Price</td>
+    </tr>
+</table>
+    <div id="displayArea"></div>
+{% endblock %}
+{% block main %}
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: lavender;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h2 {
-    background-color: #5a107384;
-    color: white;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-form {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-form input[type="submit"] {
-    background-color: #5a1073;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-#displayArea {
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#displayArea p {
-    margin-bottom: 10px;
-}
-/* Apply styles to all input elements */
-input[type="text"],
-input[type="number"] {
-    width: 50%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 2px solid #5a107384;
-    border-radius: 4px;
-    box-sizing: border-box; /* Ensure padding and border are included in element's total width/height */
-}
-
-/* Apply styles when input is focused */
-input[type="text"]:focus,
-input[type="number"]:focus {
-    border-color: #5a1073; /* Change border color when focused */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 5px #5a1073; /* Add a shadow when focused */
-}
-
-/* Apply styles to submit button */
-input[type="submit"] {
-    background-color: #5a1073;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-/* Apply styles when submit button is hovered */
-input[type="submit"]:hover {
-    background-color: #40004e; /* Darker color when hovered */
-}
-/* Apply styles to the textarea element */
-textarea {
-    width: 50%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 2px solid  #5a107384 ;
-    border-radius: 4px;
-    box-sizing: border-box; /* Ensure padding and border are included in element's total width/height */
-}
-
-/* Apply styles when textarea is focused */
-textarea:focus {
-    border-color: #5a1073; /* Change border color when focused */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 5px #5a1073; /* Add a shadow when focused */
-}
-
-
-
-        
-    </style>
-</head>
-<body>
-    
     <h2>Enter Book Details:</h2>
-    <form id="bookForm" enctype="multipart/form-data" method="post">
+    <form class="login-form-container" enctype="multipart/form-data" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" name="" id="">
+        <button type="submit">sell</button>
     </form>
-
-    <h2>Rent Price Calculations:</h2>
-    <div id="displayArea"></div>
-    
-
+ 
+    </div>
     <script>
         document.getElementById('id_price').addEventListener('input', function() {
             displayData();
@@ -139,24 +50,25 @@ textarea:focus {
             var displayArea = document.getElementById('displayArea');
             displayArea.innerHTML = '';  // Clear previous content
 
-            // Calculate and display 5%, 10%, and 15% of the entered price
+            // Calculate and display 20%, 10%, and 15% of the entered price
             var tenPercent = priceInput * 0.1;
             var fifteenPercent = priceInput * 0.15;
             var twentyPercent = priceInput * 0.2;
 
             // Create and append paragraph elements for each percentage calculation
             var tenPercentElement = document.createElement('p');
-            tenPercentElement.textContent = "5% of Price: $" + tenPercent.toFixed(2);
+            tenPercentElement.textContent = "10% of Price: $" + tenPercent.toFixed(2);
             displayArea.appendChild(tenPercentElement);
 
             var fifteenPercentElement = document.createElement('p');
-            fifteenPercentElement.textContent = "10% of Price: $" + fifteenPercent.toFixed(2);
+            fifteenPercentElement.textContent = "15% of Price: $" + fifteenPercent.toFixed(2);
             displayArea.appendChild(fifteenPercentElement);
 
             var twentyPercentElement = document.createElement('p');
-            twentyPercentElement.textContent = "15% of Price: $" + twentyPercent.toFixed(2);
+            twentyPercentElement.textContent = "20% of Price: $" + twentyPercent.toFixed(2);
             displayArea.appendChild(twentyPercentElement);
         }
     </script>
+{% endblock %}
 </body>
 </html>

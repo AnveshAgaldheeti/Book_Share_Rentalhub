@@ -53,9 +53,8 @@ h2 {
     margin-bottom: 20px; /* Add spacing below heading */
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
+
+input[type],
 button {
     width: 100%;
     padding: 10px;

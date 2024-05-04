@@ -158,3 +158,71 @@ nav {
     font-size: 14px;
 }
 
+#displayArea{
+    color: red;
+}
+
+.login-container {
+    display: flex;
+    max-width: 1200px; /* Maximum width of the login container */
+    margin: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+}
+
+.left-section {
+    flex: 1;
+    padding: 40px;
+}
+.left-section img{
+    height: 300px;
+    width: 300px;
+}
+
+.right-section {
+    flex: 1;
+    padding: 40px;
+}
+
+.logo-title {
+    font-size: 2.5em; /* Adjust the font size as needed */
+    margin-top: 20px; /* Add spacing between image and title */
+}
+
+.login-form-container {
+    background-color: #f8f9fa; /* Light gray background for login form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+}
+
+.login-container h2 {
+    font-size: 1.5em; /* Heading font size */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+
+.login-container input[type],
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-container button {
+    background-color:#37546d;
+    color: #fff; /* White text */
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #204564; /* Darker blue on hover */
+}
+
+
+
