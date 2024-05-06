@@ -7,7 +7,7 @@ body, html {
 /* Full height background color (optional) */
 body {
     background-color: #afc3d9; /* Light gray background */
-    height: 120vh; /* Full viewport height */
+    height: 100vh; /* Full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
