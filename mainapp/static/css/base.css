@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 
-header, footer {
+header{
     background-color:#37546d;
     color:black;
     padding: 10px 20px;
@@ -127,7 +127,7 @@ nav {
 
 .footer-contact, .footer-social {
     float: left;
-    width: 50%;
+    width: 25%;
 }
 
 .footer-contact h3, .footer-social h3 {
