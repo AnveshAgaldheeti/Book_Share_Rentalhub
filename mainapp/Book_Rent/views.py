@@ -28,10 +28,10 @@ def aboutfun(request):
     return HttpResponse('this is about page')
 
 def servicesfun(request):
-    return HttpResponse('this is services page')
+    return render(request,'services.html')
 
 def contactfun(request):
-    return HttpResponse('this is contact page')
+    return render(request,'contact.html')
 
 def loginfun(request):
     if request.method=='POST':
@@ -69,3 +69,6 @@ def logoutfun(request):
 def booklistfun(request):
     books=Sell_model.objects.all()
     return render(request,'booklist.html',{'books':books})
+
+def productfun(request):
+    return render(request,'product.html')
