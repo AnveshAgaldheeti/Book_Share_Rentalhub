@@ -1,86 +1,53 @@
-<!DOCTYPE html>
-<!-- Website - www.codingnepalweb.com -->
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Filterable Image Gallery Bootstrap | CodingNepal</title>
-    <link rel="stylesheet" href="gallery.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
-    <script src="gallery.js" defer></script>
-  </head>
-  <body>
+{% extends 'base.html' %}
+{% block carousel %} {% endblock %}
+{% block services %} {% endblock %}
+{% block products %}
+  <section class="product_section " style="margin-top: 10px;">
     <div class="container">
-      <!-- Images Filter Buttons Section -->
-      <div class="row mt-5" id="filter-buttons">
-        <div class="col-12">
-          <button class="btn mb-2 me-1 active" data-filter="all">Show all</button>
-          <button class="btn mb-2 mx-1" data-filter="academic">Academic</button>
-          <button class="btn mb-2 mx-1" data-filter="childrens">Childrens</button>
-          <button class="btn mb-2 mx-1" data-filter="technical">Technologies</button>
-        </div>
+      <div class="product_heading">
+        <h2>
+          Books
+        </h2>
       </div>
-
-      <!-- Filterable Images / Cards Section -->
-      <div class="row px-2 mt-4 gap-3" id="filterable-cards">
-        <div class="card p-0" data-name="academic">
-          <img src="img1.jpg" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">Academic</h6>
-            <p class="card-text">Explore academic knowledge with diverse books for enriched learning.</p>
+      <div class="product_container">
+        {% for new in books %}
+        <div class="box">
+          <div class="box-content">
+            <div class="img-box">
+              <img src="{{new.image.url}}" alt="">
+            </div>
+            <div class="detail-box">
+              <div class="text">
+                <h6>
+                  {{new.author}}
+                </h6>
+                <h5>
+                  <span>$</span> {{new.price}}
+                </h5>
+              </div>
+              <div class="like">
+                <h6>
+                  Like
+                </h6>
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a href="">
+              Add To Cart
+            </a>
           </div>
         </div>
-        <div class="card p-0" data-name="academic">
-          <img src="img2.jpg" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">Class 10 Geography</h6>
-            <p class="card-text">NCERT Class 10 Geography: Earth's wonders, maps, cultures, climates, environments explored.</p>
-          </div>
-        </div>
-        <div class="card p-0" data-name="academic">
-          <img src="img3.jpg" alt="img" width="240" height="150" >
-          <div class="card-body">
-            <h6 class="card-title">Class 10 Chemistry</h6>
-            <p class="card-text">NCERT Class 10 Chemistry: Elements, compounds, reactions, formulas, experiments explored.</p>
-          </div>
-        </div>
-        <div class="card p-0" data-name="childrens">
-          <img src="img4.jpg" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">Owl Babies</h6>
-            <p class="card-text">Owl Babies: Charming tale, sibling love, courage, nighttime adventure, reassuring.</p>
-          </div>
-        </div>
-        <div class="card p-0" data-name="childrens">
-          <img src="img5.jpg" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">500 Word Search</h6>
-            <p class="card-text">500-word search book: brain teaser, vocabulary builder, endless fun.</p>
-          </div>
-        </div>
-        <div class="card p-0" data-name="childrens">
-          <img src="img6.jpg" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">Panchatantra</h6>
-            <p class="card-text">"Panchatantra: Ancient wisdom tales, morals, animals, timeless lessons, cultural treasure."</p>
-          </div>
-        </div>
-        <div class="card p-0" data-name="technical">
-          <img src="img7.jpg" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">Java Programming Book</h6>
-            <p class="card-text">Java book: Comprehensive guide, coding essentials, practical examples, mastery journey.</p>
-          </div>
-        </div>
-        <div class="card p-0" data-name="technical">
-          <img src="img8.jpg" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">5G & Beyond</h6>
-            <p class="card-text">5G and Beyond: Future connectivity, technology evolution, transformative impact, visionary insights.</p>
-          </div>
-        </div>
+        {% endfor %}
+        
       </div>
     </div>
-
-  </body>
-</html>
+  </section>
+{% endblock %}
