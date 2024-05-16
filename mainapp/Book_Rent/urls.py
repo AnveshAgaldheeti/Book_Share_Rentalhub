@@ -11,4 +11,7 @@ urlpatterns = [
     path('signup/',views.signupfun,name="signupurl"),
     path('logout/',views.logoutfun,name="logouturl"),
     path('booklist/',views.booklistfun,name="booklisturl"),
+    path('product/',views.productfun,name="product.html"),
+    path('book/<int:pk>/',views.bookfun,name='bookurl'),
+
 ]

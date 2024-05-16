@@ -1,13 +1,20 @@
+from typing import Any
 from django import forms
 from .models import Sell_model
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
 
 class Sell_form(forms.ModelForm):
     class Meta:
         model=Sell_model
         fields=['title','author','description','categories','price','image']
-
+    def clean_price(self):
+        price=self.cleaned_data['price']
+        if price<0:
+            return ValidationError("price will be positive")
+        else:
+            return self.price
 
 
 class signupform(UserCreationForm):
