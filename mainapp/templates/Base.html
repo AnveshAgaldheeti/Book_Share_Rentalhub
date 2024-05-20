@@ -13,10 +13,11 @@
     {% block head %}
     <header>
         <nav>
-            <div class="logo">
+            <a href="{% url 'shopurl' %}" style="color: black;"><div class="logo">
                 <img src="{% static 'images/world-book-day.png' %}" alt="Book Rental System">
                 <div id="logo-tag"><b>Book Rentalhub</b></div>
             </div>
+            </a>
             
             <!-- <div class="navbar-div"> -->
             <div class="search-bar">
@@ -80,32 +81,280 @@
     {% endblock %}
     {% block carousel %}
     <div style="position: relative; display: inline-block; width: 100%;">
-      <img src="{% static 'images/background.png' %}" alt="Image" style="width: 100%; height: 700;">
+      <img src="{% static 'images/book.jpeg' %}" alt="Image" style="width: 100%; height: 60%;">
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; color: white; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
         <h1  style="color: whitesmoke;">"Book rental website: Welcoming readers, enticing covers, literary atmosphere, browsing haven."</h1>
       </div>
   </div>
     {% endblock %}
-    {% block offcanvas %}
-    
+    {% block services %}
+    <section class="service_section">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 col-lg-3">
+              <div class="box ">
+                <div class="img-box">
+                  <img src="{% static 'images/feature-1.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Fast Delivery
+                  </h5>
+                  <p>
+                    variations of passages of Lorem Ipsum available
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="box ">
+                <div class="img-box">
+                  <img src="{% static 'images/feature-2.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Free Shiping
+                  </h5>
+                  <p>
+                    variations of passages of Lorem Ipsum available
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="box ">
+                <div class="img-box">
+                  <img src="{% static 'images/feature-3.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Best Quality
+                  </h5>
+                  <p>
+                    variations of passages of Lorem Ipsum available
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="box ">
+                <div class="img-box">
+                  <img src="{% static 'images/feature-4.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    24x7 Customer support
+                  </h5>
+                  <p>
+                    variations of passages of Lorem Ipsum available
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     {% endblock %}
+
+    {% block products %}
+    <section class="product_section " style="margin: 10px;">
+        <div class="container" >
+          <div class="product_heading">
+            <h2>
+              New Arrivals
+            </h2>
+          </div>
+          <div class="product_container">
+            {% for new in new_arrival %}
+            <div class="box">
+              <div class="box-content">
+                <div class="img-box">
+                  <img src="{{new.image.url}}" alt="">
+                </div>
+                <div class="detail-box">
+                  <div class="text">
+                    <h6>
+                      {{new.author}}
+                    </h6>
+                    <h5>
+                      <span>$</span> {{new.price}}
+                    </h5>
+                  </div>
+                  <div class="like">
+                    <h6>
+                      Like
+                    </h6>
+                    <div class="star_container">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-box">
+                <a href="">
+                  Add To Cart
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </section>
+      <section class="product_section ">
+        <div class="container">
+          <div class="product_heading">
+            <h2>
+              Feature Books 
+            </h2>
+          </div>
+          <div class="product_container">
+            <div class="box">
+              <div class="box-content">
+                <div class="img-box">
+                  <img src="images/w4.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <div class="text">
+                    <h6>
+                      Men's Watch
+                    </h6>
+                    <h5>
+                      <span>$</span> 300
+                    </h5>
+                  </div>
+                  <div class="like">
+                    <h6>
+                      Like
+                    </h6>
+                    <div class="star_container">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-box">
+                <a href="">
+                  Add To Cart
+                </a>
+              </div>
+            </div>
+            <div class="box">
+              <div class="box-content">
+                <div class="img-box">
+                  <img src="images/w5.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <div class="text">
+                    <h6>
+                      Men's Watch
+                    </h6>
+                    <h5>
+                      <span>$</span> 300
+                    </h5>
+                  </div>
+                  <div class="like">
+                    <h6>
+                      Like
+                    </h6>
+                    <div class="star_container">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-box">
+                <a href="">
+                  Add To Cart
+                </a>
+              </div>
+            </div>
+            <div class="box">
+              <div class="box-content">
+                <div class="img-box">
+                  <img src="images/w6.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <div class="text">
+                    <h6>
+                      Men's Watch
+                    </h6>
+                    <h5>
+                      <span>$</span> 300
+                    </h5>
+                  </div>
+                  <div class="like">
+                    <h6>
+                      Like
+                    </h6>
+                    <div class="star_container">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-box">
+                <a href="">
+                  Add To Cart
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endblock %}
     
     {% block footer %}
     <footer class="site-footer">
         <div class="container">
             <div class="footer-contact">
                 <h3>Contact Us</h3>
-                <p>123 Bookworm Lane, Cityville, State, ZIP</p>
+                <p>V Cube-Python Full stack Training institute in KPHB, Beside Annamayya Hotel, Dhanalaxmi Center</p>
                 <p>Phone: (123) 456-7890</p>
                 <p>Email: info@yourbookrentalsystem.com</p>
-            </div>
-            <div class="footer-social">
                 <h3>Follow Us</h3>
                 <ul class="social-icons">
                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    
                 </ul>
+            </div>
+            <div class="footer-contact">
+              <h3>services</h3>
+              <ul>
+                <li><a href="{% url 'servicesurl'%}">services</a></li>
+                <li>contact</li>
+                <li>FAQ's</li>
+              </ul>
+          </div>
+          <div class="footer-contact">
+            <p>Home</p>
+            <p>Orders</p>
+            <p>Wishlist</p>
+            <p>Profile</p>
+            <p>Sale</p>
+            <p>Cart</p>
+        </div>
+            <div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.346849440282!2d78.3970879746292!3d17.490948599814566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91001b839a43%3A0xd7b2b88281cd678a!2sV%20Cube-Python%20Full%20stack%20Training%20institute%20in%20KPHB!5e0!3m2!1sen!2sin!4v1715056191252!5m2!1sen!2sin" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
             </div>
         </div>
         <div class="legal-info">

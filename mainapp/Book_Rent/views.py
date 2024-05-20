@@ -4,10 +4,11 @@ from .forms import Sell_form,signupform
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-from .models import Sell_model
+from .models import Sell_model,Category
 
 def shopfun(request):
-    return render(request,'Base.html')
+    new_arrival=Sell_model.objects.order_by("date")[:3]
+    return render(request,'Base.html',{"new_arrival":new_arrival})
 
 @login_required(login_url='loginurl')
 def sellfun(request):
@@ -20,7 +21,7 @@ def sellfun(request):
             new_book.save()
             return HttpResponse("data inserted ")
         else:
-            return HttpResponse("data not inserted")
+            return render(request,'sell.html',{"form":data})
     else:
         return render(request,'Sell.html',{"form":form})
 
@@ -68,7 +69,13 @@ def logoutfun(request):
 
 def booklistfun(request):
     books=Sell_model.objects.all()
-    return render(request,'booklist.html',{'books':books})
+    categories=Category.objects.all()
+    return render(request,'booklist.html',{'books':books,"categories":categories})
+
 
 def productfun(request):
     return render(request,'product.html')
+
+def bookfun(request,pk):
+    b=Sell_model.objects.get(id=pk)
+    return render(request,'book.html',{'book':b})
