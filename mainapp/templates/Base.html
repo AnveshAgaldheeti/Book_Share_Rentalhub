@@ -58,7 +58,27 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                       </div>
                       <div class="offcanvas-body">
-                        ...
+                        <h1>Your Shopping Cart</h1>
+                        <ul>
+                            {% for item in cart.cartitems.all %}
+                                <li>
+                                    {{ item.sell.title }} - ${{ item.sell.price }} x {{ item.quantity }} = ${{ item.total_price }}
+                                    <form method="post" action="{% url 'remove_from_cart' item.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit">Remove</button>
+                                    </form>
+                                    <form method="post" action="{% url 'update_cart' item.id %}">
+                                        {% csrf_token %}
+                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                                        <button type="submit">Update</button>
+                                    </form>
+                                </li>
+                            {% empty %}
+                                <li>Your cart is empty.</li>
+                            {% endfor %}
+                        </ul>
+                        <h3>Total: ${{ cart.total_cost }}</h3>
+                    
                       </div>
                     </div>
                     </a>
