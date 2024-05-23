@@ -4,8 +4,12 @@ body {
     margin: 0;
     padding: 0;
 }
+<<<<<<< HEAD
+header, footer {
+=======
 
 header{
+>>>>>>> 1f6aee5132170b6dc5d3ae03dcf518bb1de30091
     background-color:#37546d;
     color:black;
     padding: 10px 20px;
@@ -17,6 +21,16 @@ nav {
     align-items: center;
 }
 
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
 .logo img {
     height: 40px; /* Adjust height as needed */
     padding-bottom: 0px;
