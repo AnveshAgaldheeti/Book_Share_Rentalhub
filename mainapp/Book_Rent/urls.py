@@ -13,5 +13,9 @@ urlpatterns = [
     path('booklist/',views.booklistfun,name="booklisturl"),
     path('product/',views.productfun,name="product.html"),
     path('book/<int:pk>/',views.bookfun,name='bookurl'),
+    path('add/<int:sell_id>/', views.add_to_cart, name='add_to_cart'),
+    path('remove/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('update/<int:item_id>/', views.update_cart, name='update_cart'),
+    path('cart/', views.cart_detail, name='cart_detail'),
 
 ]

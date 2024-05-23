@@ -1,13 +1,13 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from .forms import Sell_form,signupform
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-from .models import Sell_model,Category
+from .models import Sell_model,Category,Cart,CartItem
 
 def shopfun(request):
-    new_arrival=Sell_model.objects.order_by("date")[:3]
+    new_arrival=Sell_model.objects.order_by("-date")[:3]
     return render(request,'Base.html',{"new_arrival":new_arrival})
 
 @login_required(login_url='loginurl')
@@ -79,3 +79,36 @@ def productfun(request):
 def bookfun(request,pk):
     b=Sell_model.objects.get(id=pk)
     return render(request,'book.html',{'book':b})
+
+@login_required
+def add_to_cart(request, sell_id):
+    sell = get_object_or_404(Sell_model, id=sell_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, sell=sell)
+
+    if not created:
+        cart_item.quantity += 1
+    cart_item.save()
+    return redirect('carturl')
+
+@login_required
+def remove_from_cart(request, item_id):
+    cart_item = get_object_or_404(CartItem, id=item_id)
+    cart_item.delete()
+    return redirect('cart_detail')
+
+@login_required
+def update_cart(request, item_id):
+    cart_item = get_object_or_404(CartItem, id=item_id)
+    quantity = request.POST.get('quantity')
+    if quantity and int(quantity) > 0:
+        cart_item.quantity = int(quantity)
+        cart_item.save()
+    else:
+        cart_item.delete()
+    return redirect('cart_detail')
+
+@login_required
+def cart_detail(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    return render(request, 'cart/cart_detail.html', {'cart': cart})
